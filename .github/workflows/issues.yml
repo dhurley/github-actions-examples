@@ -1,4 +1,4 @@
-name: Test
+name: Issues
 
 on:
   issues:
@@ -11,7 +11,7 @@ jobs:
      steps:
        - name: Check issue title
          run: |
-           title="${{ github.event.issues.title }}"
+           title="${{ github.event.issue.title }}"
            if [[ $title =~ [A-Z] ]]; then
            echo "PR title starts with an uppercase letter"
            exit 0
