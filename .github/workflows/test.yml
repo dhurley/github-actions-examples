@@ -11,8 +11,6 @@ jobs:
      runs-on: ubuntu-22.04
      steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-go@v3
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
@@ -20,5 +18,7 @@ jobs:
     name: Test
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
       - name: Unit Tests
         run: go test
