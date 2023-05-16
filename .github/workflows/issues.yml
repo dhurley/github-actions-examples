@@ -18,9 +18,10 @@ jobs:
            egress-policy: block
 
        - name: Check issue title
+         env:
+           TITLE: ${{ github.event.issue.title }}
          run: |
-           title="${{ github.event.issue.title }}"
-           if [[ $title =~ [A-Z] ]]; then
+           if [[ "$TITLE" =~ [A-Z] ]]; then
            echo "PR title starts with an uppercase letter"
            exit 0
            else
